@@ -8,13 +8,11 @@ router.get('/notes', function (req, res) {
 });
 
 //Returns the index.html file using GET
-router.get('/', (req, res) => {
+router.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, "../public/index.html"))
 });
 
-// app.use(require("../public/notes.html"))
-
-
+ 
 module.exports = router;
 
 
