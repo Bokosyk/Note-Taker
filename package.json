@@ -1,0 +1,26 @@
+{
+  "name": "Note-Taker",
+  "version": "1.0.0",
+  "description": "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) \r  <strong>Link:</strong> https://opensource.org/licenses/MIT",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bokosyk/Note-Taker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bokosyk/Note-Taker/issues"
+  },
+  "homepage": "https://github.com/Bokosyk/Note-Taker#readme"
+}
