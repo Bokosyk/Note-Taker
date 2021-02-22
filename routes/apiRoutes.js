@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 //Should read the db.json file and return all saved notes as JSON
 router.get("/api/notes", (req, res) => {
-    res.json()
+    res.json(db.json)
 });
 
 //SHould recieve a new note to save on the request body, add to db.json file, then return new note to the client.

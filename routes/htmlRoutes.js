@@ -12,6 +12,10 @@ router.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, "../public/index.html"))
 });
 
+//Returns db.json
+router.get("api/notes", function(req, res) {
+    res.sendFile(path.join(__dirname, "../db/db.json"))
+});
  
 module.exports = router;
 
