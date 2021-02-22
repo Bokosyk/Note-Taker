@@ -1,9 +1,15 @@
 const router = require('express').Router();
 const fs = require("fs");
 
+let notes = [];
+
 //Should read the db.json file and return all saved notes as JSON
 router.get("/api/notes", (req, res) => {
-    res.json(db.json)
+
+    //Reads json file
+    notes = fs.readFileSync("../db/db.json", "utf8");
+    notes = JSON.parse(notes);
+    // res.json(db.json)
 });
 
 //SHould recieve a new note to save on the request body, add to db.json file, then return new note to the client.
