@@ -5,7 +5,9 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// app.use(express.urlencoded({ extended: true }));
+// Read URL/JSON
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 //Require routes and use.
 app.use(require("./routes/htmlRoutes"));

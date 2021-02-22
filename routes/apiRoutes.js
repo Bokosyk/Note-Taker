@@ -10,6 +10,7 @@ router.get("/api/notes", (req, res) => {
     notes = fs.readFileSync("../db/db.json", "utf8");
     notes = JSON.parse(notes);
     // res.json(db.json)
+    
 });
 
 //SHould recieve a new note to save on the request body, add to db.json file, then return new note to the client.
