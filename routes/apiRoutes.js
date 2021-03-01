@@ -2,7 +2,7 @@ const router = require('express').Router();
 const notes = require("../db/db.json")
 const fs = require("fs");
 
-module.exports = function (router) {
+module.exports = function(router) {
 
     function writeDB(data) {
         // Converts new JSON Array back to string
@@ -50,9 +50,10 @@ module.exports = function (router) {
                res.send(notes[i]);
 
                notes.splice(i,1);
+               break;
            }
        }
-    })
+    });
 
     writeDB(notes);
 } //End of Line

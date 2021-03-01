@@ -1,6 +1,6 @@
 //Dependencies
 const express = require("express");
-const path = require("path");
+const path = require("path")
 
 //Creating an instance of express
 const app = express();
