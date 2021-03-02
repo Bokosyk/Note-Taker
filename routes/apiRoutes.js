@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const notes = require("../db/db.json")
 const fs = require("fs");
+const newNotes = [];
 
-module.exports = function(router) {
+
 
     function writeDB(data) {
         // Converts new JSON Array back to string
@@ -18,24 +19,32 @@ module.exports = function(router) {
 
 
     //Should read the db.json file and return all saved notes as JSON
+    //This route is not firing
     router.get("/api/notes", (req, res) => {
-        res.json(notes);
+        console.log("Getting notes.")
+        // fs.readFile("./db/db.json", "utf8", (err, notes) => {
+        //     console.log(notes);
+        //     res.json(notes);
+        // });
 
     });
 
     //SHould recieve a new note to save on the request body, add to db.json file, then return new note to the client.
     router.post("/api/notes", (req, res) => {
-        //Gives entry a unique id
+        console.log(req.body);
+        // Gives entry a unique id
         if (notes.length == 0) {
             req.body.id = "0";
         } else {
-            req.body.id = JSON.stringify(JSON.parse(notes[notes.length - 1].id) + 1);
+            req.body.id = Math.floor(Math.random()*1000) + 1;
         }
 
         //Pushes, writes, returns
-        notes.push(req.body);
-        writeDB(notes);
-        res.json(req.body);
+        newNotes.push(req.body);
+        writeDB(newNotes);
+        fs.readFile("./db/db.json", "utf8", (err, notes) => {
+            res.json(notes);
+        });
     })
 
     //Should receive query parameter containing id of note to delete (Means you'll have to give each note a unique id). In order to delete notes, you'll need to read all notes from db.json file, remove note with given id property, then rewrite notes to the db.json file
@@ -55,5 +64,6 @@ module.exports = function(router) {
        }
     });
 
-    writeDB(notes);
-} //End of Line
+    // writeDB(notes);
+
+    module.exports = router;
