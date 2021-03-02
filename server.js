@@ -12,9 +12,10 @@ app.use(express.json());
 
 
 //Require routes and use.
+app.use(express.static("public"));
 app.use(require("./routes/htmlRoutes"));
 app.use(require("./routes/apiRoutes"));
-app.use(express.static("public"));
+
 
 // Listening to the PORT
 app.listen(PORT, () => {
