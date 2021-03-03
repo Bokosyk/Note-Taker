@@ -11,7 +11,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 
-//Require routes and use.
+// Require routes and use.
+// Always load API routes before HTML routes
 app.use(express.static("public"));
 app.use(require("./routes/apiRoutes"));
 app.use(require("./routes/htmlRoutes"));
