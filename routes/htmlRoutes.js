@@ -7,11 +7,6 @@ router.get('/notes', function (req, res) {
     res.sendFile(path.join(__dirname, "../public/notes.html"))
 });
 
-//Returns db.json
-router.get("api/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "../db/db.json"))
-});
-
 //Returns the index.html file using GET
 router.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, "../public/index.html"))

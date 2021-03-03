@@ -22,9 +22,10 @@ const newNotes = [];
     //This route is not firing
     router.get("/api/notes", (req, res) => {
         console.log("Getting notes.")
+        
         fs.readFile("./db/db.json", "utf8", (err, notes) => {
             console.log(notes);
-            res.json(notes);
+            res.json(JSON.parse(notes));
         });
 
     });
